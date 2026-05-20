@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-export const SequelizeDbColumnsSchema = z.object({
+export const SequelizeTableSchema = z.object({
   id: z.number().int().positive(),
   uuid: z.uuid({ version: 'v7' }),
   createdAt: z.date(),
@@ -9,9 +9,9 @@ export const SequelizeDbColumnsSchema = z.object({
 });
 
 // This replaces your manual interface definition
-export type SequelizeDbColumns = z.infer<typeof SequelizeDbColumnsSchema>;
+export type SequelizeTable = z.infer<typeof SequelizeTableSchema>;
 
-export const SequelizeCreationSchema = SequelizeDbColumnsSchema.omit({
+export const SequelizeCreationSchema = SequelizeTableSchema.omit({
   id: true,
   createdAt: true,
   updatedAt: true,

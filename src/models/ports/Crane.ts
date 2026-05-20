@@ -2,25 +2,19 @@ import { DataTypes } from '@sequelize/core';
 import { postgres } from '#root/database/postgres.js';
 import { baseAttributes } from '#root/models/BaseAttributes.js';
 import { BaseModel } from '#root/models/BaseModel.js';
-import type { BirthInterface } from '#root/common/ports/Birth.js';
 import type { CraneInterface } from '#root/common/ports/Crane.js';
 
-export class Birth extends BaseModel<Birth> implements BirthInterface {
+export class Crane extends BaseModel<Crane> implements CraneInterface {
   declare name: string;
   declare terminalId: number;
-  declare isOccupied: boolean;
-  declare cranes: CraneInterface[];
+  declare birthId: number;
+  declare statusId: number;
 
   // Virtuals
 
   // Associations
-
   static async associate() {
-    const { Crane } = await import('#root/models/ports/Crane.js');
-    Birth.hasMany(Crane, {
-      as: 'cranes',
-      foreignKey: 'birthId',
-    });
+    // None
   }
 
   // Instance Methods
@@ -30,7 +24,7 @@ export class Birth extends BaseModel<Birth> implements BirthInterface {
   // none
 }
 
-Birth.init(
+Crane.init(
   {
     ...baseAttributes,
     name: {
@@ -41,14 +35,18 @@ Birth.init(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    isOccupied: {
-      type: DataTypes.BOOLEAN,
+    birthId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    statusId: {
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
   },
   {
     sequelize: postgres,
-    tableName: 'births',
+    tableName: 'cranes',
     underscored: true,
   },
 );

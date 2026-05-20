@@ -7,6 +7,7 @@ import type { TerminalInterface } from '#root/common/ports/Terminal.js';
 
 export class Terminal extends BaseModel<Terminal> implements TerminalInterface {
   declare name: string;
+  declare births: BirthInterface[];
 
   // Virtuals
 
