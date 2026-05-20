@@ -14,14 +14,14 @@
   "imports": {
     "#root/*.js": [
       "./src/*",
-      "./dist/*.js"
+      "./build/*.js"
     ]
   },
   "scripts": {
     "build": "tsc",
-    "dev": "tsx watch ./app/server.ts",
+    "dev": "tsx watch ./src/server.ts",
     "lint": "eslint . --ext .ts",
-    "prettier-format": "prettier --config .prettierrc './app/**/*.ts' --write",
+    "prettier-format": "prettier --config .prettierrc './src/**/*.ts' --write",
     "start": "node ./build/server.js"
   },
   "dependencies": {
