@@ -1,5 +1,6 @@
 import { Router } from 'express';
-import { Terminal } from '#root/models/terminal/Terminal.js';
+import { Terminal } from '#root/models/ports/Terminal.js';
+import { Birth } from '#root/models/ports/Birth.js';
 
 const router = Router();
 
@@ -7,6 +8,11 @@ router.get('/', async (req, res) => {
   try {
     const terminals = await Terminal.findAll({
       attributes: ['id', 'uuid', 'name'],
+      include: {
+        as: 'births',
+        attributes: ['id', 'uuid', 'name'],
+        model: Birth,
+      },
     });
     res.json({
       terminals: terminals,

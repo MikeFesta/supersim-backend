@@ -1,13 +1,13 @@
-import App from "./app.js";
-//import { initModels } from '#models/index.js';
+import App from './app.js';
+import { initModels } from '#root/models/index.js';
 
-const port = parseInt(process.env.PORT || "3000");
+const port = parseInt(process.env.PORT || '3000');
 
 try {
-  //await initModels();
+  await initModels();
 
   const server = await App.create();
-  server.app.listen(port, "0.0.0.0", () => {
+  server.app.listen(port, '0.0.0.0', () => {
     console.log(`Server listening on 0.0.0.0:${port}`);
   });
 } catch (err) {

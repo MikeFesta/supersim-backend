@@ -2,7 +2,8 @@ import { DataTypes } from '@sequelize/core';
 import { postgres } from '#root/database/postgres.js';
 import { baseAttributes } from '#root/models/BaseAttributes.js';
 import { BaseModel } from '#root/models/BaseModel.js';
-import type { TerminalInterface } from '#root/common/Terminal.js';
+import type { BirthInterface } from '#root/common/ports/Birth.js';
+import type { TerminalInterface } from '#root/common/ports/Terminal.js';
 
 export class Terminal extends BaseModel<Terminal> implements TerminalInterface {
   declare name: string;
@@ -10,15 +11,12 @@ export class Terminal extends BaseModel<Terminal> implements TerminalInterface {
   // Virtuals
 
   // Associations
-
   static async associate() {
-    /*
-    const { Identity } = await import('./Identity.js');
-    Account.hasMany(Identity, {
-      as: 'identities',
-      foreignKey: 'accountId',
+    const { Birth } = await import('#root/models/ports/Birth.js');
+    Terminal.hasMany(Birth, {
+      as: 'births',
+      foreignKey: 'terminalId',
     });
-    */
   }
 
   // Instance Methods

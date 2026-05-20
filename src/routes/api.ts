@@ -1,6 +1,6 @@
 import { Router } from 'express';
 
-import terminals from './api/terminals.js';
+import ports from './api/ports.js';
 
 const router = Router();
 
@@ -10,6 +10,6 @@ router.get('/health', (_req, res) => {
   });
 });
 
-router.use('/terminals', terminals);
+router.use('/ports', ports);
 
 export default router;

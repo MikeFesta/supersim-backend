@@ -8,6 +8,7 @@ export const postgres = new Sequelize({
   dialect: PostgresDialect,
   url: connectionString,
   define: {
+    paranoid: true,
     timestamps: true,
     underscored: true,
   },
