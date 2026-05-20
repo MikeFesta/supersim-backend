@@ -1,15 +1,15 @@
-import { Router } from "express";
+import { Router } from 'express';
 
-//import user from './api/user.js';
+import terminals from './api/terminals.js';
 
 const router = Router();
 
-router.get("/health", (_req, res) => {
+router.get('/health', (_req, res) => {
   res.json({
-    status: "API is UP",
+    status: 'API is UP',
   });
 });
 
-// router.use('/user', user);
+router.use('/terminals', terminals);
 
 export default router;
