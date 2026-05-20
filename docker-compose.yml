@@ -1,0 +1,21 @@
+# This docker-compose yml file is for running dev
+# Redis and Database should be started on their own first
+services:
+  # Backend
+  dev_supersim:
+    build: .
+    command: npm run dev
+    environment:
+      NODE_ENV: development
+      NODE_PATH: /install
+    networks:
+      - redis
+    ports:
+      - '${PORT}:${PORT}'
+    restart: always
+    volumes:
+      - .:/home/node/supersim
+networks:
+  redis:
+    name: redis
+    external: true
