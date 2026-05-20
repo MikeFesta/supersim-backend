@@ -13,29 +13,39 @@ router.get('/', async (req, res) => {
       let birthId = 1;
       let terminalId = 1;
 
-      if (i < 4) {
-        // defaults
-      } else if (i < 8) {
-        birthId = 2;
+      // These IDs now match Sheet5 on the JNPA Port Mumbai spreadsheet.
+      if (i < 18) {
+        // BMCT (2)
+        terminalId = 2;
+        birthId = Math.floor(i / 3) + 3; // 3 to 8
         // terminal 1
       } else if (i < 26) {
-        birthId = Math.floor((i - 8) / 3) + 3;
-        terminalId = 2;
+        // APMT (1)
+        terminalId = 1;
+        if (i < 22) {
+          birthId = 1;
+        } else {
+          birthId = 2;
+        }
       } else if (i < 30) {
-        birthId = i - 17;
-        terminalId = 3;
-      } else if (i < 34) {
+        // NSFT (4)
         terminalId = 4;
-        birthId = Math.floor(i / 2) - 2;
-      } else if (i < 40) {
-        terminalId = 5;
-        birthId = Math.floor((i - 34) / 3) + 16;
-      } else {
+        birthId = Math.floor(i / 2); // 13, 14
+      } else if (i < 33) {
+        // NSIGT (6)
         terminalId = 6;
-        birthId = 18;
+        birthId = 18; // only 1 birth
+      } else if (i < 39) {
+        // NSICT (5)
+        terminalId = 5;
+        birthId = Math.floor((i - 33) / 3) + 16;
+      } else {
+        // NSDT (3)
+        terminalId = 3;
+        birthId = i - 30; // 9, 10, 11, 12
       }
       newCranes.push({
-        name: `Crane-${i + 1}`,
+        name: `c${i + 1}`,
         birthId,
         terminalId,
         statusId: 1,
