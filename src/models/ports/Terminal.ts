@@ -4,10 +4,12 @@ import { baseAttributes } from '#root/models/BaseAttributes.js';
 import { BaseModel } from '#root/models/BaseModel.js';
 import type { BirthInterface } from '#root/common/ports/Birth.js';
 import type { TerminalInterface } from '#root/common/ports/Terminal.js';
+import { ContainerTrafficInterface } from '#root/common/ports/ContainerTraffic.js.js';
 
 export class Terminal extends BaseModel<Terminal> implements TerminalInterface {
   declare name: string;
   declare births: BirthInterface[];
+  declare containerTraffic: ContainerTrafficInterface;
 
   // Virtuals
 
@@ -16,6 +18,12 @@ export class Terminal extends BaseModel<Terminal> implements TerminalInterface {
     const { Birth } = await import('#root/models/ports/Birth.js');
     Terminal.hasMany(Birth, {
       as: 'births',
+      foreignKey: 'terminalId',
+    });
+
+    const { ContainerTraffic } = await import('#root/models/ports/ContainerTraffic.js');
+    Terminal.hasMany(ContainerTraffic, {
+      as: 'containerTraffic',
       foreignKey: 'terminalId',
     });
   }

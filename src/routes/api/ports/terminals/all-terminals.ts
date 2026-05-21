@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
       },
     });
     res.json({
-      terminals: terminals,
+      terminals,
     });
   } catch (err) {
     res.json({ error: `There was an error: ${(err as Error).message}` });

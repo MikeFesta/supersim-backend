@@ -1,0 +1,14 @@
+-- Created in production on 2026-05-20
+DROP TABLE IF EXISTS container_traffic CASCADE;
+
+CREATE TABLE IF NOT EXISTS container_traffic (
+  id SERIAL PRIMARY KEY,
+  uuid UUID NOT NULL UNIQUE,
+  created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
+  deleted_at TIMESTAMP WITH TIME ZONE NULL,
+  updated_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
+  date TIMESTAMP WITH TIME ZONE NOT NULL,
+  terminal_id INTEGER NOT NULL,
+  import_count INTEGER NOT NULL,
+  export_count INTEGER NOT NULL
+);
