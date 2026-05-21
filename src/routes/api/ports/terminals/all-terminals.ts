@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { Terminal } from '#root/models/ports/Terminal.js';
 import { Birth } from '#root/models/ports/Birth.js';
+import { Crane } from '#root/models/ports/Crane.js';
 
 const router = Router();
 
@@ -12,6 +13,11 @@ router.get('/', async (req, res) => {
         as: 'births',
         attributes: ['id', 'uuid', 'name', 'is_occupied'],
         model: Birth,
+        include: {
+          as: 'cranes',
+          attributes: ['id', 'name'],
+          model: Crane,
+        },
       },
     });
     res.json({
