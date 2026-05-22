@@ -1,0 +1,23 @@
+## STEP 1 - build
+## an intermediate step where all deps are installed and build process
+## creates a /build folder. This stage won't produce a Docker image
+FROM node:24 AS builder
+
+# Get the package.json and package-lock.json files
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+
+COPY . .
+RUN npm run build
+
+## STEP 2 - production
+FROM node:24-alpine AS prod
+WORKDIR /app
+
+COPY --from=builder /app/build ./build
+COPY --from=builder /app/package*.json ./
+
+RUN npm install --omit=dev
+
+CMD ["npm", "start"]

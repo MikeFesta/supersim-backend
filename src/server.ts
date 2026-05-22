@@ -1,4 +1,4 @@
-import App from './app.js';
+import App from '#root/app.js';
 import { initModels } from '#root/models/index.js';
 
 const port = parseInt(process.env.PORT || '3000');

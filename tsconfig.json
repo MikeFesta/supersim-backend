@@ -7,7 +7,7 @@
 
     /* Output settings */
     "outDir": "./build",
-    "rootDir": "./",
+    "rootDir": "./src",
 
     /* Strictness */
     "strict": true,

@@ -4,7 +4,7 @@ import { baseAttributes } from '#root/models/BaseAttributes.js';
 import { BaseModel } from '#root/models/BaseModel.js';
 import type { BirthInterface } from '#root/common/ports/Birth.js';
 import type { TerminalInterface } from '#root/common/ports/Terminal.js';
-import { ContainerTrafficInterface } from '#root/common/ports/ContainerTraffic.js.js';
+import { ContainerTrafficInterface } from '#root/common/ports/ContainerTraffic.js';
 
 export class Terminal extends BaseModel<Terminal> implements TerminalInterface {
   declare name: string;

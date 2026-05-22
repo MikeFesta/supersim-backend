@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { Birth } from '#root/models/ports/Birth.js';
-import { Crane } from '#root/models/ports/Crane.js.js';
+import { Crane } from '#root/models/ports/Crane.js';
 
 const router = Router();
 

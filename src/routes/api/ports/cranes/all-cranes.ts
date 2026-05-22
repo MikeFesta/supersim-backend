@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { Crane } from '#root/models/ports/Crane.js';
-import { CraneInterface } from '#root/common/ports/Crane.js.js';
+import { CraneInterface } from '#root/common/ports/Crane.js';
 import { CreationAttributes } from '@sequelize/core';
 
 const router = Router();

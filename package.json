@@ -13,8 +13,8 @@
   "type": "module",
   "imports": {
     "#root/*.js": [
-      "./src/*",
-      "./build/*.js"
+      "./build/*.js",
+      "./src/*"
     ]
   },
   "scripts": {
