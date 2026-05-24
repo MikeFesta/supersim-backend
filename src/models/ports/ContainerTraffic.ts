@@ -9,6 +9,8 @@ export class ContainerTraffic extends BaseModel<ContainerTraffic> implements Con
   declare terminalId: number;
   declare importCount: number;
   declare exportCount: number;
+  declare timePeriod: 'day' | 'month' | 'year';
+  declare vesselCount: number;
 
   // Virtuals
 
@@ -40,6 +42,14 @@ ContainerTraffic.init(
       allowNull: false,
     },
     exportCount: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    timePeriod: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
+    vesselCount: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },

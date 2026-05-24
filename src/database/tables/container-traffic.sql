@@ -10,5 +10,7 @@ CREATE TABLE IF NOT EXISTS container_traffic (
   date TIMESTAMP WITH TIME ZONE NOT NULL,
   terminal_id INTEGER NOT NULL,
   import_count INTEGER NOT NULL,
-  export_count INTEGER NOT NULL
+  export_count INTEGER NOT NULL,
+  time_period TEXT NOT NULL DEFAULT 'day',
+  vessel_count INTEGER NOT NULL DEFAULT 0
 );
