@@ -1,0 +1,15 @@
+-- Created in production on 2026-05-19
+DROP TABLE IF EXISTS birthed_vessels CASCADE;
+
+CREATE TABLE IF NOT EXISTS birthed_vessels (
+  id SERIAL PRIMARY KEY,
+  uuid UUID NOT NULL UNIQUE,
+  created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
+  deleted_at TIMESTAMP WITH TIME ZONE NULL,
+  updated_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
+  vessel_id INTEGER,
+  birth_id INTEGER,
+  birthed_on TIMESTAMP WITH TIME ZONE NULL,
+  expected_completion TIMESTAMP WITH TIME ZONE NULL,
+  reported_on TIMESTAMP WITH TIME ZONE NULL
+);

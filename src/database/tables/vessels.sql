@@ -1,0 +1,13 @@
+-- Created in production on 2026-05-19
+DROP TABLE IF EXISTS vessels CASCADE;
+
+CREATE TABLE IF NOT EXISTS vessels (
+  id SERIAL PRIMARY KEY,
+  uuid UUID NOT NULL UNIQUE,
+  created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
+  deleted_at TIMESTAMP WITH TIME ZONE NULL,
+  updated_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
+  name TEXT,
+  via_no TEXT,
+  cargo_commodity TEXT
+);
