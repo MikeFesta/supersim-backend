@@ -2,8 +2,7 @@ import { Router } from 'express';
 import { Birth } from '#root/models/ports/Birth.js';
 import { Vessel } from '#root/models/ports/Vessel.js';
 import { BirthedVessel } from '#root/models/ports/BirthedVessels.js';
-import { Op } from 'sequelize';
-import { WhereOptions } from '@sequelize/core';
+import { Op, WhereOptions } from '@sequelize/core';
 
 const router = Router();
 

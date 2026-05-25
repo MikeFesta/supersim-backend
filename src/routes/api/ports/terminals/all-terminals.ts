@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
       attributes: ['id', 'uuid', 'name'],
       include: {
         as: 'births',
-        attributes: ['id', 'uuid', 'name', 'is_occupied'],
+        attributes: ['id', 'uuid', 'name', 'isOccupied'],
         model: Birth,
         include: {
           as: 'cranes',
